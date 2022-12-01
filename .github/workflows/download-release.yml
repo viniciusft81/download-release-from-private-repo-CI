@@ -7,13 +7,11 @@ jobs:
   get_asset:
     runs-on: ubuntu-latest
     steps:
-
-      - name: Fetch asset
-        run: |
-            wget https://github.com/viniciusft81/hello-world-CI/releases/tag/jar-v2/app.jar
-            ls
-            mkdir teste
-            mv app.jar teste
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: wget
+      uses: wei/wget@v1
+      with:
+        args: -O app.jar https://github.com/viniciusft81/hello-world-CI/releases/tag/jar-v2
+   
+    - name: See what we downloaded
+      run: ls
 
