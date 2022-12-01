@@ -10,7 +10,7 @@ jobs:
 
       - name: Fetch asset
         run: |
-            wget https://github.com/viniciusft81/hello-world-CI/releases/tag/jar-v2
+            wget https://github.com/viniciusft81/hello-world-CI/releases/tag/jar-v2/app.jar
             ls
             mkdir teste
             mv app.jar teste
