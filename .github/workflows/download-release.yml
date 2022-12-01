@@ -11,6 +11,8 @@ jobs:
       uses: wei/wget@v1
       with:
         args: -qO- https://github.com/viniciusft81/hello-world-CI/releases/download/jar-v2/app.jar
+      env:
+          GITHUB_TOKEN: ${{ secrets.PRIVATE_TOKEN_REPO }}
    
     - name: See what we downloaded
       run: ls
