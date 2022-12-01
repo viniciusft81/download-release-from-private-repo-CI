@@ -10,7 +10,7 @@ jobs:
     - name: wget
       uses: wei/wget@v1
       with:
-        args: -O app.jar https://github.com/viniciusft81/hello-world-CI/releases/tag/jar-v2
+        args: -O app.jar https://github.com/viniciusft81/hello-world-CI/releases/download/jar-v2/app.jar
    
     - name: See what we downloaded
       run: ls
