@@ -9,12 +9,12 @@ jobs:
     steps:
 
       - name: List Releases
-        run: gh release list --repo viniciusft81/hello-world-CI
+        run: gh release list --repo https://github.com/viniciusft81/hello-world-CI
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Fetch asset
-        run: gh release download --repo viniciusft81/hello-world-CI jar-v2
+        run: gh release download --repo https://github.com/viniciusft81/hello-world-CI/releases/tag/jar-v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
