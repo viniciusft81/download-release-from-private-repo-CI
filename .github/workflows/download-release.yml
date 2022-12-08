@@ -22,4 +22,6 @@ jobs:
           GH_TOKEN: ${{ github.token }}
 
       - name: See what we downloaded
-        run: ls
+        run: ls |
+             mkdir my-downloads 
+             mv app.jar $GITHUB_WORKSPACE/my-downloads
