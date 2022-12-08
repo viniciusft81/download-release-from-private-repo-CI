@@ -13,7 +13,6 @@ jobs:
        with: 
         repository: "viniciusft81/hello-world-CI"
         latest: true
-        tag: "jar-v2"
         fileName: "app.jar"
         out-file-path: "$GITHUB_WORKSPACE/my-downloads"
         token: "PRIVATE_REPO_TOKEN"
