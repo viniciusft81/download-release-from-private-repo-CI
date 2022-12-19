@@ -11,15 +11,29 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checking out project
+        uses: actions/checkout@v2
+      
+      - name: Installing Node ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+          
+      - name: Installing dependencies via NPM
+        run: |
+          npm config set @sencha:registry https://npm.sencha.com/
+          npm config set //npm.sencha.com/:_authToken=${{ secrets.PRIVATE_TOKEN_REPO }}
+          npm ci --save-dev
 
       - name: List Releases
         run: gh release list --repo viniciusft81/hello-world-CI
         env:
-          GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ secrets.PRIVATE_TOKEN_REPO }}
       - name: Fetch asset
         run: gh release download --repo viniciusft81/hello-world-CI jar-v2
         env:
-          GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ secrets.PRIVATE_TOKEN_REPO }}
 
       - name: See what we downloaded
         run: ls |
