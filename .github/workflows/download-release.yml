@@ -14,15 +14,7 @@ jobs:
         node-version: [16.x]
 
     steps:
-      - name: Checking out project
-        uses: actions/checkout@v2
-      
-      - name: Installing Node ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: 'npm'
-          
+
       - name: Installing dependencies via NPM
         run: |
           npm config set @sencha:registry https://npm.sencha.com/
